@@ -140,24 +140,37 @@ function App() {
           {steps[currentStep].content}
         </motion.div>
 
-        {currentStep < 6 && (
-          <>
-            <button
-              onClick={() => setCurrentStep(currentStep + 1)}
-              className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
-            >
-              Next
-            </button>
-            {currentStep > 0 && (
-              <button
-                onClick={() => setCurrentStep(currentStep - 1)}
-                className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
-              >
-                Back
-              </button>
-            )}
-          </>
-        )}
+        {currentStep < steps.length - 1 && (
+  <>
+    <button
+      onClick={() => setCurrentStep(currentStep + 1)}
+      className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+    >
+      Next
+    </button>
+    {currentStep > 0 && (
+      <button
+        onClick={() => setCurrentStep(currentStep - 1)}
+        className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
+      >
+        Back
+      </button>
+    )}
+  </>
+)}
+{currentStep === steps.length - 1 && (
+  <>
+    <button
+      onClick={async () => {
+        setSheWantsToBeMyValentine(true);
+        await track();
+      }}
+      className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+    >
+      Yes
+    </button>
+  </>
+)}
         {currentStep === 6 && (
           <>
             <button
