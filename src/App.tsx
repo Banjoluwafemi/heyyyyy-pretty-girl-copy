@@ -31,7 +31,12 @@ function App() {
       image: "/character/two.png",
     },
     {
-      content: `Then we went on our first date…And I realized—yep, I want this girl. For life.
+      content: `So, I took a bold step. I asked for your contact, and even made my intentions known… but, well, I got turned down (ouch, lol).
+      `,
+      image: "/character/two.png",
+    },
+     {
+      content: `But life has a funny way of working things out, and somehow, we became friends. And since then, it’s been nothing short of bliss.
       `,
       image: "/character/two.png",
     },
