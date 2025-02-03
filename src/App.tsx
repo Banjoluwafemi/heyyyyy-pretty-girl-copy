@@ -121,13 +121,13 @@ function App() {
             />
             <Carousel showThumbs={false} infiniteLoop autoPlay>
               <div>
-                <img src="public/IMG_6547.jpeg.jpg" alt="Image 1" />
+                <img src="/images/IMG_6547.jpeg" alt="Image 1" />
               </div>
               <div>
-                <img src="public/IMG_6548 (1).jpeg.jpg" alt="Image 2" />
+                <img src="/images/IMG_6548.jpeg" alt="Image 2" />
               </div>
               <div>
-                <img src="public/IMG_6549.jpeg.jpg" alt="Image 3" />
+                <img src="/images/IMG_6549.jpeg" alt="Image 3" />
               </div>
             </Carousel>
           </div>
