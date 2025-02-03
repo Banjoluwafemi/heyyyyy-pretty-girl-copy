@@ -120,14 +120,15 @@ function App() {
               className="w-40 animate-bounce"
             />
             <Carousel showThumbs={false} infiniteLoop autoPlay>
-              <img src="/images/image 1.jpeg" alt="Image 1" />
-  </div>
-  <div>
-    <img src="/images/image 2.jpeg" alt="Image 2" />
-  </div>
-  <div>
-    <img src="/images/image 3.jpeg" alt="Image 3" />
-  </div>
+              <div>
+                <img src="/images/image1.jpg" alt="Image 1" />
+              </div>
+              <div>
+                <img src="/images/image2.jpg" alt="Image 2" />
+              </div>
+              <div>
+                <img src="/images/image3.jpg" alt="Image 3" />
+              </div>
             </Carousel>
           </div>
         </motion.div>
