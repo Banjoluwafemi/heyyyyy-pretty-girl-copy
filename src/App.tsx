@@ -28,36 +28,30 @@ function App() {
       image: "/character/one.png",
     },
     {
-      content: `I’ve always liked you from afar. I wasn’t sure what it was, but something in me just knew—I needed to know you.
-     `,
+      content: `I’ve always liked you from afar. I wasn’t sure what it was, but something in me just knew—I needed to know you.`,
       image: "/character/two.png",
     },
     {
-      content: `So, I took a bold step. I asked for your contact, and even made my intentions known… but, well, I got turned down (ouch, lol).
-      `,
+      content: `So, I took a bold step. I asked for your contact, and even made my intentions known… but, well, I got turned down (ouch, lol).`,
       image: "/character/two.png",
     },
-     {
+    {
       content: `But life has a funny way of working things out, and somehow, we became friends.
-      And since then, it’s been nothing short of bliss.
-      `,
+      And since then, it’s been nothing short of bliss.`,
       image: "/character/two.png",
     },
-     {
-      content: `You allowed me into your space, and every moment since, all I can think of is "Angel"❤️.
-      `,
+    {
+      content: `You allowed me into your space, and every moment since, all I can think of is "Angel"❤️.`,
       image: "/character/two.png",
     },
     {
       content: `With time, my feelings grew stronger, and now, more than ever, I know this is real.
-      This isn’t just a fleeting emotion—it’s something deeper, something certain.
-      `,
+      This isn’t just a fleeting emotion—it’s something deeper, something certain.`,
       image: "/character/two.png",
     },
-     {
+    {
       content: `And you remember when I asked for your genotype? Yeah… that wasn’t just curiosity.
-      That was me checking our compatibility for the future, because I see a future with you.
-      `,
+      That was me checking our compatibility for the future, because I see a future with you.`,
       image: "/character/two.png",
     },
     {
@@ -82,7 +76,7 @@ function App() {
   ];
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
-const [showCarousel, setShowCarousel] = useState(false);
+  const [showCarousel, setShowCarousel] = useState(false);
   const { width, height } = useWindowSize();
 
   useEffect(() => {
@@ -91,17 +85,17 @@ const [showCarousel, setShowCarousel] = useState(false);
       "/character/yayyyy.png",
     ];
 
-useEffect(() => {
-    if (sheWantsToBeMyValentine) {
-      setTimeout(() => setShowCarousel(true), 2000); // 2 seconds delay
-    }
-  }, [sheWantsToBeMyValentine]);
-
     imagePaths.forEach((path) => {
       const img = new Image();
       img.src = path;
     });
   }, []);
+
+  useEffect(() => {
+    if (sheWantsToBeMyValentine) {
+      setTimeout(() => setShowCarousel(true), 2000); // 2 seconds delay
+    }
+  }, [sheWantsToBeMyValentine]);
 
   return (
     <>
@@ -120,7 +114,7 @@ useEffect(() => {
               className="text-white text-4xl font-bold"
             >
               Yayyyyyyy!!!!!
-             </motion.h1>
+            </motion.h1>
             <img
               src="/character/yayyyy.png"
               alt=""
