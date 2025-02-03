@@ -3,6 +3,8 @@ import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
@@ -111,12 +113,23 @@ function App() {
               className="text-white text-4xl font-bold"
             >
               Yayyyyyyy!!!!!
-            </motion.h1>
+             </motion.h1>
             <img
               src="/character/yayyyy.png"
               alt=""
               className="w-40 animate-bounce"
             />
+            <Carousel showThumbs={false} infiniteLoop autoPlay>
+              <div>
+                <img src="public/IMG_6547.jpeg.jpg" alt="Image 1" />
+              </div>
+              <div>
+                <img src="public/IMG_6548 (1).jpeg.jpg" alt="Image 2" />
+              </div>
+              <div>
+                <img src="public/IMG_6549.jpeg.jpg" alt="Image 3" />
+              </div>
+            </Carousel>
           </div>
         </motion.div>
       )}
