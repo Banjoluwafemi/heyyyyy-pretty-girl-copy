@@ -26,9 +26,8 @@ function App() {
       image: "/character/one.png",
     },
     {
-      content: `Recently, we met.
-      And somehow, you've been on my mind ever since.
-      `,
+      content: `I’ve always liked you from afar. I wasn’t sure what it was, but something in me just knew—I needed to know you.
+     `,
       image: "/character/two.png",
     },
     {
