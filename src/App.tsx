@@ -137,7 +137,6 @@ useEffect(() => {
                 <img src="/images/image3.jpeg" alt="Image 3" />
               </div>
             </Carousel>
-}}
           </div>
         </motion.div>
       )}
