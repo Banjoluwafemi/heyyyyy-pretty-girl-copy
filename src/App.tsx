@@ -82,6 +82,7 @@ function App() {
   ];
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
+const [showCarousel, setShowCarousel] = useState(false);
   const { width, height } = useWindowSize();
 
   useEffect(() => {
@@ -89,6 +90,12 @@ function App() {
       ...steps.map((step) => step.image),
       "/character/yayyyy.png",
     ];
+
+useEffect(() => {
+    if (sheWantsToBeMyValentine) {
+      setTimeout(() => setShowCarousel(true), 2000); // 2 seconds delay
+    }
+  }, [sheWantsToBeMyValentine]);
 
     imagePaths.forEach((path) => {
       const img = new Image();
@@ -130,6 +137,7 @@ function App() {
                 <img src="/images/image3.jpeg" alt="Image 3" />
               </div>
             </Carousel>
+}}
           </div>
         </motion.div>
       )}
