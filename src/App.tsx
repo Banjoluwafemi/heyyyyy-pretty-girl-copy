@@ -36,22 +36,41 @@ function App() {
       image: "/character/two.png",
     },
      {
-      content: `But life has a funny way of working things out, and somehow, we became friends. And since then, it’s been nothing short of bliss.
+      content: `But life has a funny way of working things out, and somehow, we became friends.
+      And since then, it’s been nothing short of bliss.
+      `,
+      image: "/character/two.png",
+    },
+     {
+      content: `You allowed me into your space, and every moment since, all I can think of is "Angel"❤️.
       `,
       image: "/character/two.png",
     },
     {
-      content: `You're beautiful, you're smart, you're fun,
-and you make spending time together feel too short.`,
+      content: `With time, my feelings grew stronger, and now, more than ever, I know this is real.
+      This isn’t just a fleeting emotion—it’s something deeper, something certain.
+      `,
+      image: "/character/two.png",
+    },
+     {
+      content: `And you remember when I asked for your genotype? Yeah… that wasn’t just curiosity.
+      That was me checking our compatibility for the future, because I see a future with you.
+      `,
+      image: "/character/two.png",
+    },
+    {
+      content: `I promise to love you as Christ commands.
+      I promise to always stand by you.
+      I promise to be your number one fan.`,
       image: "/character/four.png",
     },
     {
-      content: `I look forward to when I'll see you again,
-hold your hands, and look into your pretty eyes.`,
+      content: `This isn’t just a relationship—it’s a journey. 
+      A journey to know Christ more and to make Him known through our union.`,
       image: "/character/five.png",
     },
     {
-      content: "So now I've got a question for you…",
+      content: "And so, here I am, taking a bold step...",
       image: "/character/six.png",
     },
     {
