@@ -33,7 +33,7 @@ function App() {
     {
       content: `Then we went on our first date…And I realized—yep, I want this girl. For life.
       `,
-      image: "/character/three.png",
+      image: "/character/two.png",
     },
     {
       content: `You're beautiful, you're smart, you're fun,
