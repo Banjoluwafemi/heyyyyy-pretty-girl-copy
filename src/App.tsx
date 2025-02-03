@@ -12,7 +12,7 @@ const logsnag = new LogSnag({
 const track = async () => {
   await logsnag.track({
     channel: "yes",
-    event: "Valentine's Day",
+    event: "Will you be my girlfriend?",
     description: "She said yes!",
     icon: "💖",
     notify: true,
@@ -62,19 +62,19 @@ function App() {
       content: `I promise to love you as Christ commands.
       I promise to always stand by you.
       I promise to be your number one fan.`,
-      image: "/character/four.png",
+      image: "/character/two.png",
     },
     {
       content: `This isn’t just a relationship—it’s a journey. 
       A journey to know Christ more and to make Him known through our union.`,
-      image: "/character/five.png",
+      image: "/character/two.png",
     },
     {
       content: "And so, here I am, taking a bold step...",
       image: "/character/six.png",
     },
     {
-      content: "Will you be my Valentine?",
+      content: "Angel, will you be my girlfriend?",
       image: "/character/seven.png",
     },
   ];
