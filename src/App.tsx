@@ -25,7 +25,6 @@ function App() {
   const steps = [
     { content: 'Heyyyyy, Angel.', image: '/character/one.png' },
     { content: 'I’ve always liked you from afar...', image: '/character/two.png' },
-    // ... other steps
   ];
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
