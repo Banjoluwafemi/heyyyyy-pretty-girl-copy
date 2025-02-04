@@ -4,7 +4,7 @@ import Confetti from 'react-confetti';
 import { motion } from 'framer-motion';
 import { LogSnag } from '@logsnag/node';
 import { BrowserRouter as Router, Route, Switch, Link, useHistory } from 'react-router-dom';
-import CarouselPage from './CarouselPage';
+import Carousel from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const logsnag = new LogSnag({
@@ -31,7 +31,6 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
-  const history = useHistory();
 
   useEffect(() => {
     const imagePaths = [...steps.map(step => step.image), '/character/yayyyy.png'];
@@ -41,72 +40,75 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {
-    if (sheWantsToBeMyValentine) {
-      setTimeout(() => {
-        history.push('/carousel');
-      }, 2000); // Navigate to carousel after 2 seconds
-    }
-  }, [sheWantsToBeMyValentine, history]);
-
   return (
     <Router>
-      <Switch>
-        <Route path="/carousel">
-          <CarouselPage />
-        </Route>
-        <Route path="/">
-          <div className="bg-[#FFC5D3] min-h-screen text-white p-5 flex flex-col items-center justify-center max-w-md mx-auto">
-            <motion.img
-              key={currentStep}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              src={steps[currentStep].image}
-              alt=""
-              className="w-40"
-            />
-            <motion.div
-              key={currentStep + '-text'}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="font-josefin text-4xl font-bold"
+      <div className="bg-[#FFC5D3] min-h-screen text-white p-5 flex flex-col items-center justify-center max-w-md mx-auto">
+        <motion.img
+          key={currentStep}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          src={steps[currentStep].image}
+          alt=""
+          className="w-40"
+        />
+        <motion.div
+          key={currentStep + '-text'}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="font-josefin text-4xl font-bold"
+        >
+          {steps[currentStep].content}
+        </motion.div>
+        {currentStep < steps.length - 1 && (
+          <>
+            <button
+              onClick={() => setCurrentStep(currentStep + 1)}
+              className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
-              {steps[currentStep].content}
-            </motion.div>
-            {currentStep < steps.length - 1 && (
-              <>
-                <button
-                  onClick={() => setCurrentStep(currentStep + 1)}
-                  className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
-                >
-                  Next
-                </button>
-                {currentStep > 0 && (
-                  <button
-                    onClick={() => setCurrentStep(currentStep - 1)}
-                    className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
-                  >
-                    Back
-                  </button>
-                )}
-              </>
-            )}
-            {currentStep === steps.length - 1 && (
+              Next
+            </button>
+            {currentStep > 0 && (
               <button
-                onClick={async () => {
-                  setSheWantsToBeMyValentine(true);
-                  await track();
-                }}
-                className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+                onClick={() => setCurrentStep(currentStep - 1)}
+                className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-2 font-semibold opacity-90"
               >
-                Yes
+                Back
               </button>
             )}
-          </div>
-        </Route>
-      </Switch>
+          </>
+        )}
+        {currentStep === steps.length - 1 && (
+          <button
+            onClick={async () => {
+              setSheWantsToBeMyValentine(true);
+              await track();
+            }}
+            className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+          >
+            Yes
+          </button>
+        )}
+        {sheWantsToBeMyValentine && (
+          <>
+            <Confetti width={width} height={height} />
+            <div className="carousel-page">
+              <Carousel showThumbs={false} infiniteLoop autoPlay>
+                <div>
+                  <img src="/images/image1.jpeg" alt="Image 1" className="w-20" />
+                </div>
+                <div>
+                  <img src="/images/image2.jpeg" alt="Image 2" className="w-20" />
+                </div>
+                <div>
+                  <img src="/images/image3.jpeg" alt="Image 3" className="w-20" />
+                </div>
+              </Carousel>
+            </div>
+          </>
+        )}
+      </div>
     </Router>
   );
 }
