@@ -95,9 +95,11 @@ function App() {
       img.src = path;
     });
 
+    // Reset and play audio on component mount
     audioRef.current.currentTime = 0;
     audioRef.current.play();
 
+    // Cleanup: pause audio on component unmount
     return () => {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
