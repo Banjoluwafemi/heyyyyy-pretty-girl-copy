@@ -3,7 +3,7 @@ import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
 import { motion } from 'framer-motion';
 import { LogSnag } from '@logsnag/node';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, useHistory } from 'react-router-dom';
 import CarouselPage from './CarouselPage';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -31,6 +31,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
+  const history = useHistory();
 
   useEffect(() => {
     const imagePaths = [...steps.map(step => step.image), '/character/yayyyy.png'];
@@ -39,6 +40,14 @@ function App() {
       img.src = path;
     });
   }, []);
+
+  useEffect(() => {
+    if (sheWantsToBeMyValentine) {
+      setTimeout(() => {
+        history.push('/carousel');
+      }, 2000); // Navigate to carousel after 2 seconds
+    }
+  }, [sheWantsToBeMyValentine, history]);
 
   return (
     <Router>
@@ -85,17 +94,15 @@ function App() {
               </>
             )}
             {currentStep === steps.length - 1 && (
-              <Link to="/carousel">
-                <button
-                  onClick={async () => {
-                    setSheWantsToBeMyValentine(true);
-                    await track();
-                  }}
-                  className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
-                >
-                  Yes
-                </button>
-              </Link>
+              <button
+                onClick={async () => {
+                  setSheWantsToBeMyValentine(true);
+                  await track();
+                }}
+                className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
+              >
+                Yes
+              </button>
             )}
           </div>
         </Route>
