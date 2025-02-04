@@ -3,6 +3,7 @@ import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
+import backgroundMusic from '../public/Music/Johnny-Drille-For-You-(TrendyBeatz.com).mp3';  // Importing the music
 
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
@@ -81,7 +82,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
-  const audioRef = useRef(new Audio('/Music/Johnny-Drille-For-You-(TrendyBeatz.com).mp3'));
+  const audioRef = useRef(new Audio(backgroundMusic));
 
   useEffect(() => {
     const imagePaths = [
@@ -94,7 +95,8 @@ function App() {
       img.src = path;
     });
 
-    // Start playing the music when the component mounts
+    // Reset and start playing the music from the beginning when the component mounts
+    audioRef.current.currentTime = 0;
     audioRef.current.play();
 
     // Cleanup function to stop the music when the component unmounts
