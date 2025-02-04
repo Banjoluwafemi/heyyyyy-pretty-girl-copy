@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
@@ -81,6 +81,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
+  const audioRef = useRef(new Audio('/Music/Johnny-Drille-For-You-(TrendyBeatz.com).mp3'));
 
   useEffect(() => {
     const imagePaths = [
@@ -92,6 +93,15 @@ function App() {
       const img = new Image();
       img.src = path;
     });
+
+    // Start playing the music when the component mounts
+    audioRef.current.play();
+
+    // Cleanup function to stop the music when the component unmounts
+    return () => {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    };
   }, []);
 
   return (
