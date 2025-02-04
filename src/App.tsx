@@ -3,8 +3,7 @@ import { useWindowSize } from 'react-use';
 import Confetti from 'react-confetti';
 import { motion } from 'framer-motion';
 import { LogSnag } from '@logsnag/node';
-import { BrowserRouter as Router, Route, Switch, Link, useHistory } from 'react-router-dom';
-import Carousel from 'react-responsive-carousel';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const logsnag = new LogSnag({
@@ -91,22 +90,7 @@ function App() {
           </button>
         )}
         {sheWantsToBeMyValentine && (
-          <>
-            <Confetti width={width} height={height} />
-            <div className="carousel-page">
-              <Carousel showThumbs={false} infiniteLoop autoPlay>
-                <div>
-                  <img src="/images/image1.jpeg" alt="Image 1" className="w-20" />
-                </div>
-                <div>
-                  <img src="/images/image2.jpeg" alt="Image 2" className="w-20" />
-                </div>
-                <div>
-                  <img src="/images/image3.jpeg" alt="Image 3" className="w-20" />
-                </div>
-              </Carousel>
-            </div>
-          </>
+          <Confetti width={width} height={height} />
         )}
       </div>
     </Router>
