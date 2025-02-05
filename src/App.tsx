@@ -65,6 +65,12 @@ function App() {
       I promise to be your number one fan.`,
       image: "/character/two.png",
     },
+     {
+      content: `Allow me to be your safe space, allow me to be the one you can lean on.
+      Allow me to walk this journey with you, through life’s highs and lows, through laughter and tears.
+      `,
+      image: "/character/two.png",
+    },
     {
       content: `This isn’t just a relationship—it’s a journey. 
       A journey to know Christ more and to make Him known through our union.`,
