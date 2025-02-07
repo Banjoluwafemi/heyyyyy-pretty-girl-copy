@@ -4,6 +4,7 @@ import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
 import backgroundMusic from '../public/Music/Johnny-Drille-For-You-(TrendyBeatz.com).mp3'; 
+import sendEmail from './sendEmail';
 
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
@@ -111,6 +112,12 @@ function App() {
       audioRef.current.currentTime = 0;
     };
   }, []);
+
+  const handleYesClick = async () => {
+    setSheWantsToBeMyValentine(true);
+    await track();
+    await sendEmail(['femmybanjoh@gmail.com']);
+  };
 
   return (
     <>
