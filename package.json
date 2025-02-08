@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@logsnag/node": "^1.0.0",
     "confetti": "^0.1.0",
     "dotenv": "^10.0.0",
@@ -19,7 +18,6 @@
     "react-confetti": "^6.1.0",
     "react-dom": "18.3.1",
     "react-use": "^17.2.4"
-=======
     "@logsnag/node": "^1.0.1",
     "@sendgrid/mail": "^8.1.4",
     "@tailwindcss/vite": "^4.0.3",
@@ -32,7 +30,6 @@
     "react-responsive-carousel": "^3.2.23",
     "react-use": "^17.6.0",
     "tailwindcss": "^4.0.3"
->>>>>>> 1f76db9 (done)
   },
   "devDependencies": {
     "@types/node": "17.0.21",
