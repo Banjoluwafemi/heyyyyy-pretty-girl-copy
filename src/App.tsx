@@ -46,8 +46,26 @@ function App() {
   const handleYesClick = async () => {
     setSheWantsToBeMyValentine(true);
     await track();
-    await sendEmail(['ofemibanjo@gmail.com'], 'She Said Yes!', 'Will you be my girlfriend? She said yes!');
+  
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          recipientEmails: ["ofemibanjo@gmail.com", "banjoluwafemi@gmail.com"],
+          subject: "She Said YES! 💖",
+          message: "She accepted the proposal! 🎉",
+        }),
+      });
+  
+      if (!response.ok) throw new Error("Failed to send email");
+  
+      console.log("Email sent successfully!");
+    } catch (error) {
+      console.error("Email sending failed:", error);
+    }
   };
+  
 
   return (
     <>
