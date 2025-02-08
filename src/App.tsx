@@ -5,9 +5,10 @@ import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
 
 const logsnag = new LogSnag({
-  token: "LOGSNAG_TOKEN",
-  project: "PROJECT_NAME",
+  token: process.env.NEXT_PUBLIC_LOGSNAG_TOKEN,
+  project: "heyyyyy-pretty-girl", // ✅ Example valid project name
 });
+
 
 const track = async () => {
   await logsnag.track({
