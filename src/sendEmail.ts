@@ -1,18 +1,27 @@
-import sgMail from '@sendgrid/mail';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
+dotenv.config();
 
 const sendEmail = async (recipients: string[]) => {
-  const msg = {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.femmybanjoh@gmail.com,
+      pass: process.env.Femostic1@
+    }
+  });
+
+  const mailOptions = {
+    from: process.env.femmybanjoh@gmail.com,
     to: recipients,
-    from: 'your-email@example.com', // Use your verified SendGrid sender email
     subject: 'She Said Yes!',
     text: 'Will you be my girlfriend? She said yes!',
-    html: '<strong>Will you be my girlfriend? She said yes!</strong>',
+    html: '<strong>Will you be my girlfriend? She said yes!</strong>'
   };
 
   try {
-    await sgMail.sendMultiple(msg);
+    await transporter.sendMail(mailOptions);
     console.log('Emails sent successfully');
   } catch (error) {
     console.error('Error sending emails:', error);
