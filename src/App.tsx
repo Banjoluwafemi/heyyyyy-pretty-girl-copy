@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react"; // Added useRef import
+import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
-import sendEmail from "../pages/api/sendEmail";
 
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
@@ -18,6 +17,26 @@ const track = async () => {
     icon: "💖",
     notify: true,
   });
+};
+
+const sendEmail = async (recipients: string[], subject: string, text: string) => {
+  try {
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ recipients, subject, text }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send email');
+    }
+
+    console.log('Emails sent successfully');
+  } catch (error) {
+    console.error('Error sending emails:', error);
+  }
 };
 
 function App() {
@@ -104,7 +123,7 @@ function App() {
   const handleYesClick = async () => {
     setSheWantsToBeMyValentine(true);
     await track();
-    await sendEmail(['ofemibanjo@gmail.com']);
+    await sendEmail(['ofemibanjo@gmail.com'], 'She Said Yes!', 'Will you be my girlfriend? She said yes!');
   };
 
   return (
