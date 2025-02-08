@@ -88,7 +88,6 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [sheWantsToBeMyValentine, setSheWantsToBeMyValentine] = useState(false);
   const { width, height } = useWindowSize();
-  const audioRef = useRef(new Audio(backgroundMusic));
 
  useEffect(() => {
     const imagePaths = [
