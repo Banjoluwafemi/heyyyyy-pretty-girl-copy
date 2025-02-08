@@ -116,7 +116,7 @@ function App() {
   const handleYesClick = async () => {
     setSheWantsToBeMyValentine(true);
     await track();
-    await sendEmail(['femmybanjoh@gmail.com']);
+    await sendEmail(['ofemibanjo@gmail.com']);
   };
 
   return (
