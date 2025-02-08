@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react"; // Added useRef import
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
-import sendEmail from "./sendEmail";
+import sendEmail from "../pages/api/sendEmail";
+import backgroundMusic from "../public/Music/Johnny-Drille-For-You-(TrendyBeatz.com).mp3"; // Assuming the path to the background music file
 
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
