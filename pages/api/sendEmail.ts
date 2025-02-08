@@ -6,7 +6,7 @@ dotenv.config();
 
 const sendEmail = async (req, res) => {
   if (req.method === 'POST') {
-    const { recipients } = req.body;
+    const { recipients, subject, text } = req.body;
 
     // Create a transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
@@ -21,9 +21,9 @@ const sendEmail = async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: recipients,
-      subject: 'She Said Yes!',
-      text: 'Will you be my girlfriend? She said yes!',
-      html: '<strong>Will you be my girlfriend? She said yes!</strong>'
+      subject: subject || 'She Said Yes!',
+      text: text || 'Will you be my girlfriend? She said yes!',
+      html: `<strong>${text || 'Will you be my girlfriend? She said yes!'}</strong>`
     };
 
     // Send mail with defined transport object
