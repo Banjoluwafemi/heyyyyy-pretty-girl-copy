@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
-import backgroundMusic from '../public/Music/Johnny-Drille-For-You-(TrendyBeatz.com).mp3'; 
 import sendEmail from './sendEmail';
 
 const logsnag = new LogSnag({
@@ -91,7 +90,7 @@ function App() {
   const { width, height } = useWindowSize();
   const audioRef = useRef(new Audio(backgroundMusic));
 
-  useEffect(() => {
+ useEffect(() => {
     const imagePaths = [
       ...steps.map((step) => step.image),
       "/character/yayyyy.png",
@@ -101,16 +100,6 @@ function App() {
       const img = new Image();
       img.src = path;
     });
-
-    // Reset and play audio on component mount
-    audioRef.current.currentTime = 0;
-    audioRef.current.play();
-
-    // Cleanup: pause audio on component unmount
-    return () => {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-    };
   }, []);
 
   const handleYesClick = async () => {
@@ -186,10 +175,7 @@ function App() {
         {currentStep === steps.length - 1 && (
           <>
             <button
-              onClick={async () => {
-                setSheWantsToBeMyValentine(true);
-                await track();
-              }}
+              onClick={handleYesClick}
               className="bg-white text-[#FFC5D3] py-3 text-xl rounded-xl w-full mt-10 font-semibold"
             >
               Yes
