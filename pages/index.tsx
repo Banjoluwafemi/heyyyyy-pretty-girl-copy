@@ -3,7 +3,7 @@ import { useWindowSize } from "react-use";
 import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import { LogSnag } from "@logsnag/node";
-import sendEmail from './sendEmail';
+import sendEmail from '../sendEmail';
 
 const logsnag = new LogSnag({
   token: "LOGSNAG_TOKEN",
